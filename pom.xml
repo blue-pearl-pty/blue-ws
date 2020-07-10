@@ -14,6 +14,66 @@
     <description>Generates the API Schema Model used by Blue Web Service Clients and Service Providers</description>
 
     <properties>
+        <api.error.episode.file>${api.error.generate.directory}/META-INF/api-error.episode</api.error.episode.file>
+        <api.error.generate.directory>${project.build.directory}/generated-sources/xjc/api-error</api.error.generate.directory>
       <java.version>11</java.version>
     </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jvnet.jaxb2.maven2</groupId>
+                    <artifactId>maven-jaxb2-plugin</artifactId>
+                    <version>0.14.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jvnet.jax-ws-commons</groupId>
+                    <artifactId>jaxws-maven-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <configuration>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics</artifactId>
+                            <version>1.11.1</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics-annotate</artifactId>
+                            <version>1.0.4</version>
+                        </plugin>
+                    </plugins>
+                    <episode>true</episode>
+                    <extension>true</extension>
+                    <verbose>true</verbose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>api-error</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <episodeFile>${api.error.episode.file}</episodeFile>
+                            <strict>false</strict>
+                            <schemaDirectory>src/main/xsd</schemaDirectory>
+                            <schemaIncludes>
+                                <include>shared/api-error.xsd</include>
+                            </schemaIncludes>
+                            <generateDirectory>${api.error.generate.directory}</generateDirectory>
+                            <generatePackage>za.co.bluepearl.shared.api.error</generatePackage>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

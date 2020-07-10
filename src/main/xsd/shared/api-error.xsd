@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.blueapp.blue/shared/apiError/v1"
+           targetNamespace="http://www.blueapp.blue/shared/apiError/v1"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    <xs:element name="APIError" type="tns:APIError"/>
+
+    <xs:complexType name="APIError">
+        <xs:annotation>
+            <xs:documentation>
+                This is the default API error response message.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="timestamp" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:documentation>The time the error happened.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="message" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>The description of the error message.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
