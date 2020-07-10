@@ -1,0 +1,1 @@
+# Blue Web Service Contracts
