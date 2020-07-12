@@ -57,7 +57,7 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>api-error</id>
+                        <id>api-error value objects</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -70,6 +70,21 @@
                             </schemaIncludes>
                             <generateDirectory>${api.error.generate.directory}</generateDirectory>
                             <generatePackage>za.co.bluepearl.shared.api.error</generatePackage>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>registration value objects</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <strict>false</strict>
+                            <schemaDirectory>src/main/xsd</schemaDirectory>
+                            <schemaIncludes>
+                                <include>registration/registration.xsd</include>
+                            </schemaIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc/registration</generateDirectory>
+                            <generatePackage>za.co.bluepearl.registration.dto</generatePackage>
                         </configuration>
                     </execution>
                 </executions>

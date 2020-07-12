@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.blueapp.blue/registration/v1"
+           targetNamespace="http://www.blueapp.blue/registration/v1"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    
+    <xs:element name="CreateUserRequest" type="tns:CreateUserRequest"/>
+    <xs:element name="UpdateUserRequest" type="tns:UpdateUserRequest"/>
+    <xs:element name="UserLookupResponse" type="tns:UserLookupResponse"/>
+
+    <xs:complexType name="CreateUserRequest">
+        <xs:annotation>
+            <xs:documentation>
+                The request to register a user.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="emailAddress" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>The user's email address.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="type" type="tns:UserType"/>
+            <xs:element name="status" type="tns:RegistrationStatus"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UpdateUserRequest">
+        <xs:annotation>
+            <xs:documentation>
+                The request to update a user.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="status" type="tns:RegistrationStatus"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserLookupResponse">
+        <xs:annotation>
+            <xs:documentation>
+                The response to a user lookup request.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="type" type="tns:UserType"/>
+            <xs:element name="status" type="tns:RegistrationStatus"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="UserType">
+        <xs:annotation>
+            <xs:documentation>
+                The type of user.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CLIENT"/>
+            <xs:enumeration value="CONTRACTOR"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="RegistrationStatus">
+        <xs:annotation>
+            <xs:documentation>
+                Indicator to track whether a user has created a full profile on the system.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNVERIFIED"/>
+            <xs:enumeration value="VERIFIED"/>
+            <xs:enumeration value="COMPLETE"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
