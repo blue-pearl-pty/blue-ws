@@ -10,6 +10,9 @@
     <fileSets>
         <fileSet>
             <directory>${project.build.directory}/generated-sources/xjc/registration</directory>
+            <excludes>
+                <exclude>**/*.java</exclude>
+            </excludes>
             <outputDirectory/>
         </fileSet>
     </fileSets>
