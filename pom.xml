@@ -201,6 +201,7 @@
                             <descriptors>
                                 <descriptor>src/main/assembly/api-error.xml</descriptor>
                                 <descriptor>src/main/assembly/registration.xml</descriptor>
+                                <descriptor>src/main/assembly/contracts.xml</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>
