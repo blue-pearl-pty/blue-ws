@@ -6,10 +6,12 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
         jaxb:extensionBindingPrefixes="xjc annox"
         version="2.1">
-    <jaxb:bindings schemaLocation="../registration/registration.xsd" node="/xs:schema">
-        <jaxb:bindings node="xs:complexType[@name='CreateUserRequest']/xs:sequence/xs:element[@name='emailAddress']">
-            <annox:annotate target="field">
-                <annox:annotate annox:class="javax.validation.constraints.Email" message="Email address should be a valid email."/>
+    <jaxb:bindings schemaLocation="../shared/api-error.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='APIError']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.Builder"/>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
             </annox:annotate>
         </jaxb:bindings>
     </jaxb:bindings>

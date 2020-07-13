@@ -30,6 +30,11 @@
             <artifactId>jaxb-api</artifactId>
             <version>2.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -63,6 +68,11 @@
                         <artifactId>jaxb-api</artifactId>
                         <version>2.3.1</version>
                     </dependency>
+                    <dependency>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>1.18.12</version>
+                    </dependency>
                 </dependencies>
 
                 <configuration>
@@ -89,12 +99,19 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+                            <args>
+                                <arg>-Xannotate</arg>
+                            </args>
                             <episodeFile>${api.error.episode.file}</episodeFile>
                             <strict>false</strict>
                             <schemaDirectory>src/main/xsd</schemaDirectory>
                             <schemaIncludes>
                                 <include>shared/api-error.xsd</include>
                             </schemaIncludes>
+                            <bindingDirectory>src/main/xsd/binding</bindingDirectory>
+                            <bindingIncludes>
+                                <include>api-error.xjb</include>
+                            </bindingIncludes>
                             <generateDirectory>${api.error.generate.directory}</generateDirectory>
                             <generatePackage>za.co.bluepearl.shared.api.error</generatePackage>
                         </configuration>
