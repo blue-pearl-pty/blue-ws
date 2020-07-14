@@ -29,4 +29,21 @@
             </annox:annotate>
         </jaxb:bindings>
     </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../registration/registration.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='UpdateUserRequest']/xs:sequence/xs:element[@name='status']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="javax.validation.constraints.NotNull" message="User status must not be null."/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../registration/registration.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='UserLookupResponse']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
 </jaxb:bindings>
