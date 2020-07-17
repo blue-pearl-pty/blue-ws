@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.blueapp.blue/profile/v1"
+           targetNamespace="http://www.blueapp.blue/profile/v1"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    
+    <xs:element name="EventLookupRequest" type="tns:EventLookupRequest"/>
+    <xs:element name="EventLookupResponse" type="tns:EventLookupResponse"/>
+    <xs:complexType name="EventLookupRequest">
+        <xs:annotation>
+            <xs:documentation>
+                The request to retrieve application events.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="type" type="tns:EventType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EventLookupResponse">
+        <xs:annotation>
+            <xs:documentation>
+                The response to an event lookup request.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="ContractorReference" type="tns:ContractorReference"/>
+            <xs:element name="CompanyReference" type="tns:CompanyReference"/>
+            <xs:element name="JobProfileReference" type="tns:JobProfileReference" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="EventType">
+        <xs:annotation>
+            <xs:documentation>
+                Defines the type of event.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="APPLY_FOR_JOB"/>
+            <xs:enumeration value="REQUEST_INTERVIEW"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="ContractorReference">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="surname" type="xs:string"/>
+            <xs:element name="candidateNumber" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CompanyReference">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="JobProfileReference">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
