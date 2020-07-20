@@ -154,11 +154,18 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+                            <args>
+                                <arg>-Xannotate</arg>
+                            </args>
                             <strict>false</strict>
                             <schemaDirectory>src/main/xsd</schemaDirectory>
                             <schemaIncludes>
                                 <include>profile/profile.xsd</include>
                             </schemaIncludes>
+                            <bindingDirectory>src/main/xsd/binding</bindingDirectory>
+                            <bindingIncludes>
+                                <include>profile.xjb</include>
+                            </bindingIncludes>
                             <generateDirectory>${project.build.directory}/generated-sources/xjc/profile</generateDirectory>
                             <generatePackage>za.co.bluepearl.profile.dto</generatePackage>
                         </configuration>

@@ -24,6 +24,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
             <xs:element name="ContractorReference" type="tns:ContractorReference"/>
             <xs:element name="CompanyReference" type="tns:CompanyReference"/>
             <xs:element name="JobProfileReference" type="tns:JobProfileReference" minOccurs="0"/>
