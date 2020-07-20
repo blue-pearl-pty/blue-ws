@@ -25,6 +25,7 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element name="id" type="xs:string"/>
+            <xs:element name="createdDate" type="xs:dateTime"/>
             <xs:element name="ContractorReference" type="tns:ContractorReference"/>
             <xs:element name="CompanyReference" type="tns:CompanyReference"/>
             <xs:element name="JobProfileReference" type="tns:JobProfileReference" minOccurs="0"/>
@@ -60,6 +61,25 @@
         <xs:sequence>
             <xs:element name="id" type="xs:string"/>
             <xs:element name="title" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Create Contract Request -->
+    <xs:element name="CreateContractRequest" type="tns:CreateContractRequest"/>
+
+    <xs:complexType name="CreateContractRequest">
+        <xs:annotation>
+            <xs:documentation>
+                The request to create a new Contract Entity
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="eventId" type="xs:string"/>
+            <xs:element name="contractDurationInMonths" type="xs:int"/>
+            <xs:element name="contractHoursPerMonth" type="xs:integer"/>
+            <xs:element name="contractStartDate" type="xs:dateTime"/>
+            <xs:element name="ratePerHourClient" type="xs:decimal"/>
+            <xs:element name="ratePerHourContractor" type="xs:decimal"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
