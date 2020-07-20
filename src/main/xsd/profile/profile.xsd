@@ -76,7 +76,7 @@
         <xs:sequence>
             <xs:element name="eventId" type="xs:string"/>
             <xs:element name="contractDurationInMonths" type="xs:int"/>
-            <xs:element name="contractHoursPerMonth" type="xs:integer"/>
+            <xs:element name="contractHoursPerMonth" type="xs:int"/>
             <xs:element name="contractStartDate" type="xs:dateTime"/>
             <xs:element name="ratePerHourClient" type="xs:decimal"/>
             <xs:element name="ratePerHourContractor" type="xs:decimal"/>
