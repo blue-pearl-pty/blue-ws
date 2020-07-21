@@ -26,9 +26,9 @@
         <xs:sequence>
             <xs:element name="id" type="xs:string"/>
             <xs:element name="createdDate" type="xs:dateTime"/>
-            <xs:element name="ContractorReference" type="tns:ContractorReference"/>
-            <xs:element name="CompanyReference" type="tns:CompanyReference"/>
-            <xs:element name="JobProfileReference" type="tns:JobProfileReference" minOccurs="0"/>
+            <xs:element name="contractor" type="tns:ContractorReference"/>
+            <xs:element name="company" type="tns:CompanyReference"/>
+            <xs:element name="jobProfile" type="tns:JobProfileReference" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -59,7 +59,6 @@
     </xs:complexType>
     <xs:complexType name="JobProfileReference">
         <xs:sequence>
-            <xs:element name="id" type="xs:string"/>
             <xs:element name="title" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
