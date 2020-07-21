@@ -14,8 +14,7 @@
     <description>Generates the API Schema Model used by Blue Web Service Clients and Service Providers</description>
 
     <properties>
-        <api.error.episode.file>${api.error.generate.directory}/META-INF/api-error.episode</api.error.episode.file>
-        <api.error.generate.directory>${project.build.directory}/generated-sources/xjc/api-error</api.error.generate.directory>
+        <api.error.generate.directory>${project.build.directory}/generated-sources/xjc/api</api.error.generate.directory>
       <java.version>11</java.version>
     </properties>
 
@@ -104,7 +103,7 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>api-error value objects</id>
+                        <id>api value objects</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -112,18 +111,17 @@
                             <args>
                                 <arg>-Xannotate</arg>
                             </args>
-                            <episodeFile>${api.error.episode.file}</episodeFile>
                             <strict>false</strict>
                             <schemaDirectory>src/main/xsd</schemaDirectory>
                             <schemaIncludes>
-                                <include>shared/api-error.xsd</include>
+                                <include>shared/api.xsd</include>
                             </schemaIncludes>
                             <bindingDirectory>src/main/xsd/binding</bindingDirectory>
                             <bindingIncludes>
-                                <include>api-error.xjb</include>
+                                <include>api.xjb</include>
                             </bindingIncludes>
-                            <generateDirectory>${api.error.generate.directory}</generateDirectory>
-                            <generatePackage>za.co.bluepearl.shared.api.error</generatePackage>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc/api</generateDirectory>
+                            <generatePackage>za.co.bluepearl.shared.api</generatePackage>
                         </configuration>
                     </execution>
                     <execution>
@@ -231,7 +229,7 @@
                         </goals>
                         <configuration>
                             <descriptors>
-                                <descriptor>src/main/assembly/api-error.xml</descriptor>
+                                <descriptor>src/main/assembly/api.xml</descriptor>
                                 <descriptor>src/main/assembly/registration.xml</descriptor>
                                 <descriptor>src/main/assembly/profile.xml</descriptor>
                                 <descriptor>src/main/assembly/contracts.xml</descriptor>

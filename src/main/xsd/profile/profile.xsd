@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:tns="http://www.blueapp.blue/profile/v1"
            targetNamespace="http://www.blueapp.blue/profile/v1"
+           xmlns:tns="http://www.blueapp.blue/profile/v1"
+           xmlns:api="http://www.blueapp.blue/shared/api/v1"
            elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+    <xs:import namespace="http://www.blueapp.blue/shared/api/v1" schemaLocation="../shared/api.xsd"/>
     
     <xs:element name="EventLookupRequest" type="tns:EventLookupRequest"/>
     <xs:element name="EventLookupResponse" type="tns:EventLookupResponse"/>
@@ -76,9 +79,10 @@
             <xs:element name="eventId" type="xs:string"/>
             <xs:element name="contractDurationInMonths" type="xs:int"/>
             <xs:element name="contractHoursPerMonth" type="xs:int"/>
-            <xs:element name="contractStartDate" type="xs:dateTime"/>
-            <xs:element name="ratePerHourClient" type="xs:decimal"/>
-            <xs:element name="ratePerHourContractor" type="xs:decimal"/>
+            <xs:element name="contractStartDate" type="xs:date"/>
+            <xs:element name="ratePerHourClient" type="api:MonetaryAmount"/>
+            <xs:element name="ratePerHourContractor" type="api:MonetaryAmount"/>
+            <xs:element name="countryCode" type="api:CountryCode"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
