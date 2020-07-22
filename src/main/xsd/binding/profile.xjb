@@ -57,5 +57,38 @@
             </annox:annotate>
         </jaxb:bindings>
     </jaxb:bindings>
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='CreateContractRequest']/xs:sequence/xs:element[@name='contractStartDate']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='ContractEngagementRequest']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='Contract']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='Contract']/xs:sequence/xs:element[@name='contractStartDate']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
 
 </jaxb:bindings>

@@ -90,4 +90,25 @@
             <xs:element name="countryCode" type="api:CountryCode"/>
         </xs:sequence>
     </xs:complexType>
+
+    <!-- Contract Engagement Request -->
+    <xs:element name="ContractEngagementRequest" type="tns:ContractEngagementRequest"/>
+    <xs:complexType name="ContractEngagementRequest">
+        <xs:sequence>
+            <xs:element name="eventId" type="xs:string"/>
+            <xs:element name="contract" type="tns:Contract"/>
+            <xs:element name="company" type="tns:CompanyReference"/>
+            <xs:element name="contractor" type="tns:ContractorReference"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Contract">
+        <xs:sequence>
+            <xs:element name="contractDurationInMonths" type="xs:int"/>
+            <xs:element name="contractHoursPerMonth" type="xs:int"/>
+            <xs:element name="contractStartDate" type="xs:date"/>
+            <xs:element name="ratePerHourClient" type="api:MonetaryAmount"/>
+            <xs:element name="ratePerHourContractor" type="api:MonetaryAmount"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
