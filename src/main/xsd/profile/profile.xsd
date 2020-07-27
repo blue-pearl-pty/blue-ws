@@ -98,7 +98,7 @@
             <xs:element name="eventId" type="xs:string"/>
             <xs:element name="contract" type="tns:Contract"/>
             <xs:element name="company" type="tns:CompanyReference"/>
-            <xs:element name="contractor" type="tns:ContractorReference"/>
+            <xs:element name="contractor" type="tns:ContractorDetail"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -110,6 +110,14 @@
             <xs:element name="ratePerHourClient" type="api:MonetaryAmount"/>
             <xs:element name="ratePerHourContractor" type="api:MonetaryAmount"/>
             <xs:element name="countryCode" type="api:CountryCode"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ContractorDetail">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="surname" type="xs:string"/>
+            <xs:element name="emailAddress" type="xs:string"/>
+            <xs:element name="candidateNumber" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
