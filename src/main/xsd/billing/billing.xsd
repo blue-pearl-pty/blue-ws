@@ -20,12 +20,12 @@
     <xs:complexType name="TimesheetResponse">
         <xs:sequence>
             <xs:element name="contracts" type="tns:Contract" maxOccurs="unbounded"/>
-            <xs:element name="timesheets" type="tns:TimesheetEntry" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="Contract">
         <xs:sequence>
             <xs:element name="company" type="tns:Company"/>
+            <xs:element name="contractor" type="tns:Contractor"/>
             <xs:element name="activities" type="tns:Activity" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
@@ -46,6 +46,12 @@
     <xs:complexType name="Activity">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Contractor">
+        <xs:sequence>
+            <xs:element name="candidateNumber" type="xs:string"/>
+            <xs:element name="timesheets" type="tns:TimesheetEntry" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
