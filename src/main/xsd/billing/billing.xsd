@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.blueapp.blue/billing/v1"
+           targetNamespace="http://www.blueapp.blue/billing/v1"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    <xs:element name="TimesheetRequest" type="tns:TimesheetRequest"/>
+    <xs:element name="TimesheetResponse" type="tns:TimesheetResponse"/>
+    <xs:complexType name="TimesheetRequest">
+        <xs:sequence>
+            <xs:annotation>
+                <xs:documentation>
+                    The request to retrieve timesheets.
+                    Discuss how to send through the unique identifier for the contract.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:element name="date" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TimesheetResponse">
+        <xs:sequence>
+            <xs:element name="contracts" type="tns:Contract" maxOccurs="unbounded"/>
+            <xs:element name="timesheets" type="tns:TimesheetEntry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Contract">
+        <xs:sequence>
+            <xs:element name="company" type="tns:Company"/>
+            <xs:element name="activities" type="tns:Activity" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Company">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TimesheetEntry">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="minutes" type="xs:int"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="activity" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Activity">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
