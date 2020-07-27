@@ -104,11 +104,12 @@
 
     <xs:complexType name="Contract">
         <xs:sequence>
-            <xs:element name="contractDurationInMonths" type="xs:int"/>
-            <xs:element name="contractHoursPerMonth" type="xs:int"/>
-            <xs:element name="contractStartDate" type="xs:date"/>
+            <xs:element name="durationInMonths" type="xs:int"/>
+            <xs:element name="hoursPerMonth" type="xs:int"/>
+            <xs:element name="startDate" type="xs:date"/>
             <xs:element name="ratePerHourClient" type="api:MonetaryAmount"/>
             <xs:element name="ratePerHourContractor" type="api:MonetaryAmount"/>
+            <xs:element name="countryCode" type="api:CountryCode"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
