@@ -10,7 +10,7 @@
             <xs:annotation>
                 <xs:documentation>
                     The request to retrieve timesheets.
-                    Discuss how to send through the unique identifier for the contract.
+                    Discuss how to send through the unique identifier for the contractor.
                 </xs:documentation>
             </xs:annotation>
             <xs:element name="date" type="xs:date"/>
