@@ -25,12 +25,16 @@
     <xs:complexType name="Contract">
         <xs:sequence>
             <xs:element name="company" type="tns:Company"/>
-            <xs:element name="contractor" type="tns:Contractor"/>
-            <xs:element name="activities" type="tns:Activity" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="timesheets" type="tns:TimesheetEntry" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="Company">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Activity">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
         </xs:sequence>
@@ -43,15 +47,41 @@
             <xs:element name="activity" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="Activity">
+
+
+    <xs:element name="TimesheetReferenceDataRequest" type="tns:TimesheetReferenceDataRequest"/>
+    <xs:element name="TimesheetReferenceDataResponse" type="tns:TimesheetReferenceDataResponse"/>
+
+    <xs:complexType name="TimesheetReferenceDataRequest">
+        <xs:sequence>
+            <xs:annotation>
+                <xs:documentation>
+                    The request to retrieve reference data to create timesheets.
+                    Returns list of contracts and contract activities
+                </xs:documentation>
+            </xs:annotation>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TimesheetReferenceDataResponse">
+        <xs:sequence>
+            <xs:element name="contracts" type="tns:ReferenceContract" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ReferenceContract">
+        <xs:sequence>
+            <xs:element name="company" type="tns:ReferenceCompany"/>
+            <xs:element name="activities" type="tns:ReferenceActivity" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ReferenceCompany">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="Contractor">
+    <xs:complexType name="ReferenceActivity">
         <xs:sequence>
-            <xs:element name="candidateNumber" type="xs:string"/>
-            <xs:element name="timesheets" type="tns:TimesheetEntry" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="name" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
