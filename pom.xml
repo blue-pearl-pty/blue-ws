@@ -14,7 +14,8 @@
     <description>Generates the API Schema Model used by Blue Web Service Clients and Service Providers</description>
 
     <properties>
-        <api.error.generate.directory>${project.build.directory}/generated-sources/xjc/api</api.error.generate.directory>
+        <api.episode.file>${api.generate.directory}/META-INF/api.episode</api.episode.file>
+        <api.generate.directory>${project.build.directory}/generated-sources/xjc/api</api.generate.directory>
       <java.version>11</java.version>
     </properties>
 
@@ -111,6 +112,7 @@
                             <args>
                                 <arg>-Xannotate</arg>
                             </args>
+                            <episodeFile>${api.episode.file}</episodeFile>
                             <strict>false</strict>
                             <schemaDirectory>src/main/xsd</schemaDirectory>
                             <schemaIncludes>
@@ -154,6 +156,8 @@
                         <configuration>
                             <args>
                                 <arg>-Xannotate</arg>
+                                <arg>-b</arg>
+                                <arg>${api.episode.file}</arg>
                             </args>
                             <strict>false</strict>
                             <schemaDirectory>src/main/xsd</schemaDirectory>
