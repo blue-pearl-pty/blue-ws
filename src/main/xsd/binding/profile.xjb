@@ -42,6 +42,7 @@
     <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
         <jaxb:bindings node="xs:complexType[@name='CompanyReference']">
             <annox:annotate>
+                <annox:annotate annox:class="lombok.Builder"/>
                 <annox:annotate annox:class="lombok.NoArgsConstructor"/>
                 <annox:annotate annox:class="lombok.AllArgsConstructor"/>
             </annox:annotate>
@@ -86,6 +87,7 @@
     <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
         <jaxb:bindings node="xs:complexType[@name='ContractorDetail']">
             <annox:annotate>
+                <annox:annotate annox:class="lombok.Builder"/>
                 <annox:annotate annox:class="lombok.NoArgsConstructor"/>
                 <annox:annotate annox:class="lombok.AllArgsConstructor"/>
             </annox:annotate>

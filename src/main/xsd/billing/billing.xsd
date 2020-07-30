@@ -41,7 +41,7 @@
     </xs:complexType>
     <xs:complexType name="TimesheetEntry">
         <xs:sequence>
-            <xs:element name="id" type="xs:string"/>
+            <xs:element name="id" type="xs:string" minOccurs="0"/>
             <xs:element name="date" type="xs:date"/>
             <xs:element name="minutes" type="xs:int"/>
             <xs:element name="description" type="xs:string"/>
@@ -83,6 +83,15 @@
     <xs:complexType name="ReferenceActivity">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="CreateTimesheetEntryRequest" type="tns:CreateTimesheetEntryRequest"/>
+
+    <xs:complexType name="CreateTimesheetEntryRequest">
+        <xs:sequence>
+            <xs:element name="company" type="tns:ReferenceCompany"/>
+            <xs:element name="timesheet" type="tns:TimesheetEntry"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
