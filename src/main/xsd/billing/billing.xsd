@@ -42,6 +42,7 @@
     <xs:complexType name="TimesheetEntry">
         <xs:sequence>
             <xs:element name="id" type="xs:string"/>
+            <xs:element name="date" type="xs:date"/>
             <xs:element name="minutes" type="xs:int"/>
             <xs:element name="description" type="xs:string"/>
             <xs:element name="activity" type="xs:string"/>
