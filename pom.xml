@@ -172,6 +172,30 @@
                             <generatePackage>za.co.bluepearl.profile.dto</generatePackage>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>billing value objects</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-Xannotate</arg>
+                                <arg>-b</arg>
+                                <arg>${api.episode.file}</arg>
+                            </args>
+                            <strict>false</strict>
+                            <schemaDirectory>src/main/xsd</schemaDirectory>
+                            <schemaIncludes>
+                                <include>billing/billing.xsd</include>
+                            </schemaIncludes>
+                            <bindingDirectory>src/main/xsd/binding</bindingDirectory>
+                            <bindingIncludes>
+                                <include>billing.xjb</include>
+                            </bindingIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc/billing</generateDirectory>
+                            <generatePackage>za.co.bluepearl.billing.dto</generatePackage>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -236,6 +260,7 @@
                                 <descriptor>src/main/assembly/api.xml</descriptor>
                                 <descriptor>src/main/assembly/registration.xml</descriptor>
                                 <descriptor>src/main/assembly/profile.xml</descriptor>
+                                <descriptor>src/main/assembly/billing.xml</descriptor>
                                 <descriptor>src/main/assembly/contracts.xml</descriptor>
                             </descriptors>
                         </configuration>
