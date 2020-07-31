@@ -72,6 +72,7 @@
     </xs:complexType>
     <xs:complexType name="ReferenceContract">
         <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
             <xs:element name="company" type="tns:ReferenceCompany"/>
             <xs:element name="activities" type="tns:ReferenceActivity" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -90,7 +91,7 @@
 
     <xs:complexType name="CreateTimesheetEntryRequest">
         <xs:sequence>
-            <xs:element name="company" type="tns:ReferenceCompany"/>
+            <xs:element name="contractId" type="xs:string"/>
             <xs:element name="timesheet" type="tns:TimesheetEntry"/>
         </xs:sequence>
     </xs:complexType>
