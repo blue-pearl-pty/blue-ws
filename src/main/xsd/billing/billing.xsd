@@ -5,6 +5,12 @@
            elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
     <xs:element name="TimesheetRequest" type="tns:TimesheetRequest"/>
     <xs:element name="TimesheetResponse" type="tns:TimesheetResponse"/>
+    <xs:element name="TimesheetReferenceDataRequest" type="tns:TimesheetReferenceDataRequest"/>
+    <xs:element name="TimesheetReferenceDataResponse" type="tns:TimesheetReferenceDataResponse"/>
+    <xs:element name="CreateTimesheetEntryRequest" type="tns:CreateTimesheetEntryRequest"/>
+    <xs:element name="UpdateTimesheetEntryRequest" type="tns:UpdateTimesheetEntryRequest"/>
+    <xs:element name="DeleteTimesheetEntryRequest" type="tns:DeleteTimesheetEntryRequest"/>
+
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
             <xs:annotation>
@@ -49,10 +55,6 @@
         </xs:sequence>
     </xs:complexType>
 
-
-    <xs:element name="TimesheetReferenceDataRequest" type="tns:TimesheetReferenceDataRequest"/>
-    <xs:element name="TimesheetReferenceDataResponse" type="tns:TimesheetReferenceDataResponse"/>
-
     <xs:complexType name="TimesheetReferenceDataRequest">
         <xs:sequence>
             <xs:annotation>
@@ -86,12 +88,22 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="CreateTimesheetEntryRequest" type="tns:CreateTimesheetEntryRequest"/>
-
     <xs:complexType name="CreateTimesheetEntryRequest">
         <xs:sequence>
             <xs:element name="company" type="tns:ReferenceCompany"/>
             <xs:element name="timesheet" type="tns:TimesheetEntry"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UpdateTimesheetEntryRequest">
+        <xs:sequence>
+            <xs:element name="timesheetId" type="xs:string"/>
+            <xs:element name="timesheet" type="tns:TimesheetEntry"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DeleteTimesheetEntryRequest">
+        <xs:sequence>
+            <xs:element name="timesheetId" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
