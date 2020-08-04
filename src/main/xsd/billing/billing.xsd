@@ -51,6 +51,7 @@
             <xs:element name="minutes" type="xs:int"/>
             <xs:element name="description" type="xs:string"/>
             <xs:element name="activity" type="xs:string"/>
+            <xs:element name="status" type="tns:TimesheetEntryStatus"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -101,4 +102,18 @@
             <xs:element name="timesheet" type="tns:TimesheetEntry"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:simpleType name="TimesheetEntryStatus">
+        <xs:annotation>
+            <xs:documentation>
+                Defines the status of a timesheet.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CREATED"/>
+            <xs:enumeration value="APPROVED"/>
+            <xs:enumeration value="REJECTED"/>
+            <xs:enumeration value="BILLED"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

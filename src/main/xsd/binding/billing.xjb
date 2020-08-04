@@ -30,6 +30,12 @@
                 <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
             </annox:annotate>
         </jaxb:bindings>
+
+        <jaxb:bindings node="xs:complexType[@name='TimesheetEntry']/xs:sequence/xs:element[@name='status']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Status must not be null."/>
+            </annox:annotate>
+        </jaxb:bindings>
     </jaxb:bindings>
 
     <jaxb:bindings schemaLocation="../billing/billing.xsd" node="/xs:schema">
