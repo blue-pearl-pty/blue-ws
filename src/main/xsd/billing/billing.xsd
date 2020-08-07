@@ -20,7 +20,6 @@
     <xs:element name="QueryInvoiceListResponse" type="tns:QueryInvoiceListResponse"/>
     <xs:element name="QueryTimesheetSummaryRequest" type="tns:QueryTimesheetSummaryRequest"/>
     <xs:element name="QueryTimesheetSummaryResponse" type="tns:QueryTimesheetSummaryResponse"/>
-    <xs:element name="QuerySubmittedTimeSheetRequest" type="tns:QuerySubmittedTimeSheetRequest"/>
     <xs:element name="ApproveTimesheetEntryRequest" type="tns:ApproveTimesheetEntryRequest"/>
     <xs:element name="RejectTimesheetEntryRequest" type="tns:RejectTimesheetEntryRequest"/>
 
@@ -148,7 +147,7 @@
     </xs:complexType>
     <xs:complexType name="ContractorContractListResponse">
         <xs:sequence>
-            <xs:element name="ContractorContractSummary" type="tns:ContractorContractSummary" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="contractorContracts" type="tns:ContractorContractSummary" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="ContractorContractSummary">
@@ -185,7 +184,6 @@
     </xs:complexType>
     <xs:complexType name="QueryTimesheetSummaryRequest">
         <xs:sequence>
-            <xs:element name="contractId" type="xs:string"/>
             <xs:element name="startDate" type="xs:date"/>
             <xs:element name="endDate" type="xs:date"/>
         </xs:sequence>
@@ -195,12 +193,6 @@
         <xs:sequence>
             <xs:element name="timesheetEntries" type="tns:TimesheetEntry" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="downloadLink" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="QuerySubmittedTimeSheetRequest">
-        <xs:sequence>
-            <xs:element name="contractId" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 

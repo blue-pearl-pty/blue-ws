@@ -94,12 +94,6 @@
             </annox:annotate>
         </jaxb:bindings>
 
-        <jaxb:bindings node="xs:complexType[@name='QueryTimesheetSummaryRequest']/xs:sequence/xs:element[@name='contractId']">
-            <annox:annotate target="field">
-                <annox:annotate annox:class="javax.validation.constraints.NotEmpty" message="Contract Id must not be empty."/>
-                <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Contract Id must not be null."/>
-            </annox:annotate>
-        </jaxb:bindings>
         <jaxb:bindings node="xs:complexType[@name='QueryTimesheetSummaryRequest']/xs:sequence/xs:element[@name='startDate']">
             <annox:annotate target="field">
                 <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Start date must not be null."/>
@@ -110,13 +104,6 @@
             <annox:annotate target="field">
                 <annox:annotate annox:class="javax.validation.constraints.NotNull" message="End date must not be null."/>
                 <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
-            </annox:annotate>
-        </jaxb:bindings>
-
-        <jaxb:bindings node="xs:complexType[@name='QuerySubmittedTimeSheetRequest']/xs:sequence/xs:element[@name='contractId']">
-            <annox:annotate target="field">
-                <annox:annotate annox:class="javax.validation.constraints.NotEmpty" message="Contract Id must not be empty."/>
-                <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Contract Id must not be null."/>
             </annox:annotate>
         </jaxb:bindings>
 

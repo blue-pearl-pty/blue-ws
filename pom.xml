@@ -196,6 +196,30 @@
                             <generatePackage>za.co.bluepearl.billing.dto</generatePackage>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>pdf value objects</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-Xannotate</arg>
+                                <arg>-b</arg>
+                                <arg>${api.episode.file}</arg>
+                            </args>
+                            <strict>false</strict>
+                            <schemaDirectory>src/main/xsd</schemaDirectory>
+                            <schemaIncludes>
+                                <include>pdf/pdf.xsd</include>
+                            </schemaIncludes>
+                            <bindingDirectory>src/main/xsd/binding</bindingDirectory>
+                            <bindingIncludes>
+                                <include>pdf.xjb</include>
+                            </bindingIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc/pdf</generateDirectory>
+                            <generatePackage>za.co.bluepearl.pdf.dto</generatePackage>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -262,6 +286,7 @@
                                 <descriptor>src/main/assembly/profile.xml</descriptor>
                                 <descriptor>src/main/assembly/billing.xml</descriptor>
                                 <descriptor>src/main/assembly/contracts.xml</descriptor>
+                                <descriptor>src/main/assembly/pdf.xml</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>
