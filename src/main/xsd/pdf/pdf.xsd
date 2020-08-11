@@ -34,11 +34,11 @@
             <xs:element name="number" type="xs:string"/>
             <xs:element name="date" type="xs:date"/>
             <xs:element name="reference" type="xs:string" />
-            <xs:element name="amountExcludingVAT" type="api:MonetaryAmount" />
-            <xs:element name="vatRate" type="xs:decimal" />
-            <xs:element name="subTotal" type="api:MonetaryAmount" />
-            <xs:element name="vat" type="api:MonetaryAmount" />
-            <xs:element name="total" type="api:MonetaryAmount" />
+            <xs:element name="amountExcludingVAT" type="xs:string" />
+            <xs:element name="vatRate" type="xs:string" />
+            <xs:element name="subTotal" type="xs:string" />
+            <xs:element name="vat" type="xs:string" />
+            <xs:element name="total" type="xs:string" />
             <xs:element name="lineItems" type="tns:LineItem" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
@@ -47,23 +47,20 @@
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="vatNumber" type="xs:string"/>
-            <xs:element name="postalAddress" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="physicalAddress" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="postalAddress" type="xs:string"/>
+            <xs:element name="physicalAddress" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="LineItem">
         <xs:sequence>
-            <xs:element name="quantity" type="xs:decimal" />
-            <xs:element name="amountExcludingVAT" type="api:MonetaryAmount" />
-            <xs:element name="type" type="tns:LineItemType" />
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="LineItemType">
-        <xs:sequence>
-            <xs:element name="description" type="xs:string"/>
-            <xs:element name="code" type="xs:string"/>
+            <xs:element name="item" type="xs:string" />
+            <xs:element name="description" type="xs:string" />
+            <xs:element name="quantity" type="xs:string" />
+            <xs:element name="amountExcludingVAT" type="xs:string" />
+            <xs:element name="vatRate" type="xs:string" />
+            <xs:element name="totalExcludingVat" type="xs:string" />
+            <xs:element name="totalIncludingVat" type="xs:string" />
         </xs:sequence>
     </xs:complexType>
 
