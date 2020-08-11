@@ -22,6 +22,7 @@
     <xs:element name="QueryTimesheetSummaryResponse" type="tns:QueryTimesheetSummaryResponse"/>
     <xs:element name="ApproveTimesheetEntryRequest" type="tns:ApproveTimesheetEntryRequest"/>
     <xs:element name="RejectTimesheetEntryRequest" type="tns:RejectTimesheetEntryRequest"/>
+    <xs:element name="TimesheetReportRequest" type="tns:TimesheetReportRequest"/>
 
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
@@ -216,4 +217,11 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="TimesheetReportRequest">
+        <xs:sequence>
+            <xs:element name="startDate" type="xs:date"/>
+            <xs:element name="endDate" type="xs:date"/>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
