@@ -15,6 +15,7 @@
             <xs:element name="name" type="xs:string"/>
             <xs:element name="dateFrom" type="xs:date"/>
             <xs:element name="dateTo" type="xs:date"/>
+            <xs:element name="total" type="xs:string"/>
             <xs:element name="timesheetEntries" type="tns:TimesheetEntry" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
