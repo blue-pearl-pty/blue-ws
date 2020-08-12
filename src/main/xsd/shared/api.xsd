@@ -46,6 +46,7 @@
         <xs:sequence>
             <xs:element name="amount" type="tns:Amount"/>
             <xs:element name="currencyCode" type="tns:CurrencyCode"/>
+            <xs:element name="symbol" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="Amount">

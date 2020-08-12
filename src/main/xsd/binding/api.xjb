@@ -23,13 +23,4 @@
             </annox:annotate>
         </jaxb:bindings>
     </jaxb:bindings>
-
-    <jaxb:bindings schemaLocation="../shared/api.xsd" node="/xs:schema">
-        <jaxb:bindings node="xs:complexType[@name='MonetaryAmount']">
-            <annox:annotate>
-                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
-                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
-            </annox:annotate>
-        </jaxb:bindings>
-    </jaxb:bindings>
 </jaxb:bindings>
