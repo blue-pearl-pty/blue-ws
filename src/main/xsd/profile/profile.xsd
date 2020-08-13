@@ -58,6 +58,9 @@
     <xs:complexType name="CompanyReference">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
+            <xs:element name="vatNumber" type="xs:string"/>
+            <xs:element name="postalAddress" type="xs:string"/>
+            <xs:element name="physicalAddress" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="JobProfileReference">
