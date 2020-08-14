@@ -23,6 +23,9 @@
     <xs:element name="ApproveTimesheetEntryRequest" type="tns:ApproveTimesheetEntryRequest"/>
     <xs:element name="RejectTimesheetEntryRequest" type="tns:RejectTimesheetEntryRequest"/>
     <xs:element name="TimesheetReportRequest" type="tns:TimesheetReportRequest"/>
+    <xs:element name="ClientWeekViewTimesheetResponse" type="tns:ClientWeekViewTimesheetResponse"/>
+    <xs:element name="ContractorWeekViewTimesheetResponse" type="tns:ContractorWeekViewTimesheetResponse"/>
+    <xs:element name="ContractorBillingSummaryResponse" type="tns:ContractorBillingSummaryResponse"/>
 
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
@@ -222,6 +225,102 @@
             <xs:element name="startDate" type="xs:date"/>
             <xs:element name="endDate" type="xs:date"/>
             <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="ContractorWeekViewTimesheetResponse">
+        <xs:annotation>
+            <xs:documentation>
+                GET Request:
+                Params: startDate, endDate as type string
+                Uri: /billing/contractor-timesheet-week-view/{startDate}/{endDate}
+                Echos back startDate and endDate as submitted
+                Returns list of ContractorTimesheetWeekView
+                Contractor will be identified by email address from authorization token.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="startDate" type="xs:date" />
+            <xs:element name="endDate" type="xs:date" />
+            <xs:element name="rows" type="tns:ContractorTimesheetWeekView" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ClientWeekViewTimesheetResponse" >
+        <xs:annotation>
+            <xs:documentation>
+                GET Request:
+                Params: companyName, startDate, endDate as type string
+                uri: /billing/client-timesheet-week-view/{companyName}/{startDate}/{endDate}
+                Echos back startDate and endDate as submitted
+                Returns list of ClientTimesheetWeekView
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="startDate" type="xs:date" />
+            <xs:element name="endDate" type="xs:date" />
+            <xs:element name="rows" type="tns:ClientTimesheetWeekView" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContractorTimesheetWeekView">
+        <xs:complexContent>
+            <xs:extension base="tns:TimesheetWeekView" >
+                <xs:sequence>
+                    <xs:element name="companyName" type="xs:string" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ClientTimesheetWeekView" >
+        <xs:complexContent>
+            <xs:extension base="tns:TimesheetWeekView" >
+                <xs:sequence>
+                    <xs:element name="contractorName" type="xs:string" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="TimesheetWeekView">
+        <xs:annotation>
+            <xs:documentation>
+                This represents 1 row of the week view of a timesheet.
+                Each row will represent 1 activity for 1 contract.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="activity" type="xs:string" />
+            <xs:element name="sunday" type="xs:int" />
+            <xs:element name="monday" type="xs:int" />
+            <xs:element name="tuesday" type="xs:int" />
+            <xs:element name="wednesday" type="xs:int" />
+            <xs:element name="thursday" type="xs:int" />
+            <xs:element name="friday" type="xs:int" />
+            <xs:element name="saturday" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContractorBillingSummaryResponse">
+        <xs:annotation>
+            <xs:documentation>
+                GET Request:
+                Params: companyName as type string
+                uri: /billing/client-contractor-billing-summary/{companyName}
+                Returns sum of hours per contractor for dates from start of current billing cycle start date to current date
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="contractorSummary" type="tns:ContractorBillingSummary" minOccurs="9" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContractorBillingSummary">
+        <xs:sequence>
+            <xs:element name="contractorName" type="xs:string" />
+            <xs:element name="totalMinutes" type="xs:int" />
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
