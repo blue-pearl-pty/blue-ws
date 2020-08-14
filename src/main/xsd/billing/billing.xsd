@@ -328,7 +328,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="contractorSummary" type="tns:ContractorBillingSummary" minOccurs="9" maxOccurs="unbounded"/>
+            <xs:element name="contractorSummary" type="tns:ContractorBillingSummary" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
