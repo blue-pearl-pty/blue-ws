@@ -26,6 +26,7 @@
     <xs:element name="ClientWeekViewTimesheetResponse" type="tns:ClientWeekViewTimesheetResponse"/>
     <xs:element name="ContractorWeekViewTimesheetResponse" type="tns:ContractorWeekViewTimesheetResponse"/>
     <xs:element name="ContractorBillingSummaryResponse" type="tns:ContractorBillingSummaryResponse"/>
+    <xs:element name="ActivityAggregate" type="tns:ActivityAggregate"/>
 
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
@@ -56,11 +57,32 @@
             <xs:element name="name" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+
     <xs:complexType name="Activity">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="TimeLogEntry">
+        <xs:sequence>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="minutes" type="xs:int">
+                <xs:annotation>
+                    <xs:documentation>
+                        Total number of minutes
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ActivityAggregate">
+        <xs:sequence>
+            <xs:element name="activity" type="tns:Activity"/>
+            <xs:element name="entries" type="tns:TimeLogEntry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
     <xs:complexType name="TimesheetEntry">
         <xs:sequence>
             <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -292,14 +314,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="activity" type="xs:string" />
-            <xs:element name="sunday" type="xs:int" />
-            <xs:element name="monday" type="xs:int" />
-            <xs:element name="tuesday" type="xs:int" />
-            <xs:element name="wednesday" type="xs:int" />
-            <xs:element name="thursday" type="xs:int" />
-            <xs:element name="friday" type="xs:int" />
-            <xs:element name="saturday" type="xs:int" />
+            <xs:element name="activityAggregate" type="tns:ActivityAggregate" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 

@@ -94,6 +94,24 @@
             </annox:annotate>
         </jaxb:bindings>
 
+        <jaxb:bindings node="xs:complexType[@name='TimeLogEntry']/xs:sequence/xs:element[@name='date']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
+            </annox:annotate>
+        </jaxb:bindings>
+
+        <jaxb:bindings node="xs:complexType[@name='ContractorWeekViewTimesheetResponse']/xs:sequence/xs:element[@name='startDate']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
+            </annox:annotate>
+        </jaxb:bindings>
+
+        <jaxb:bindings node="xs:complexType[@name='ContractorWeekViewTimesheetResponse']/xs:sequence/xs:element[@name='endDate']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
+            </annox:annotate>
+        </jaxb:bindings>
+
         <jaxb:bindings node="xs:complexType[@name='QueryTimesheetSummaryRequest']/xs:sequence/xs:element[@name='startDate']">
             <annox:annotate target="field">
                 <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Start date must not be null."/>
