@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:annox="http://annox.dev.java.net"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+        jaxb:extensionBindingPrefixes="xjc annox" version="2.1">
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='EventLookupRequest']/xs:sequence/xs:element[@name='type']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Event type must not be null."/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='EventLookupResponse']/xs:sequence/xs:element[@name='createdDate']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd'T'HH:mm:ss.SSSZ"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='ContractorReference']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='JobProfileReference']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='CompanyReference']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.Builder"/>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='CreateContractRequest']/xs:sequence/xs:element[@name='initiatedBy']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="javax.validation.constraints.Email" message="Email address must be a valid email."/>
+                <annox:annotate annox:class="javax.validation.constraints.NotEmpty" message="Email address must not be empty."/>
+                <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Email address must not be null."/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='CreateContractRequest']/xs:sequence/xs:element[@name='contractStartDate']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='ContractEngagementRequest']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='Contract']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='ContractorDetail']">
+            <annox:annotate>
+                <annox:annotate annox:class="lombok.Builder"/>
+                <annox:annotate annox:class="lombok.NoArgsConstructor"/>
+                <annox:annotate annox:class="lombok.AllArgsConstructor"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
+        <jaxb:bindings node="xs:complexType[@name='Contract']/xs:sequence/xs:element[@name='startDate']">
+            <annox:annotate target="field">
+                <annox:annotate annox:class="com.fasterxml.jackson.annotation.JsonFormat" pattern="yyyy-MM-dd"/>
+            </annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>
