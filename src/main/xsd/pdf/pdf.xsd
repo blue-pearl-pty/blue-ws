@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.blueapp.blue/pdf/v1"
+           targetNamespace="http://www.blueapp.blue/pdf/v1"
+           xmlns:api="http://www.blueapp.blue/shared/api/v1"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+    <xs:import namespace="http://www.blueapp.blue/shared/api/v1" schemaLocation="../shared/api.xsd"/>
+
+    <xs:element name="TimesheetReportTemplate" type="tns:TimesheetReportTemplate"/>
+    <xs:element name="InvoiceTemplate" type="tns:InvoiceTemplate"/>
+
+    <xs:complexType name="TimesheetReportTemplate">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="dateFrom" type="xs:string"/>
+            <xs:element name="dateTo" type="xs:string"/>
+            <xs:element name="total" type="xs:string"/>
+            <xs:element name="timesheetEntries" type="tns:TimesheetEntry" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TimesheetEntry">
+        <xs:sequence>
+            <xs:element name="date" type="xs:string"/>
+            <xs:element name="duration" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="activity" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InvoiceTemplate">
+        <xs:sequence>
+            <xs:element name="company" type="tns:Company"/>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element name="date" type="xs:string"/>
+            <xs:element name="reference" type="xs:string" />
+            <xs:element name="amountExcludingVAT" type="xs:string" />
+            <xs:element name="vatRate" type="xs:string" />
+            <xs:element name="subTotal" type="xs:string" />
+            <xs:element name="vat" type="xs:string" />
+            <xs:element name="total" type="xs:string" />
+            <xs:element name="lineItems" type="tns:LineItem" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Company">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="vatNumber" type="xs:string"/>
+            <xs:element name="postalAddress" type="xs:string"/>
+            <xs:element name="physicalAddress" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LineItem">
+        <xs:sequence>
+            <xs:element name="item" type="xs:string" />
+            <xs:element name="description" type="xs:string" />
+            <xs:element name="quantity" type="xs:string" />
+            <xs:element name="amountExcludingVAT" type="xs:string" />
+            <xs:element name="vatRate" type="xs:string" />
+            <xs:element name="totalExcludingVat" type="xs:string" />
+            <xs:element name="totalIncludingVat" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
