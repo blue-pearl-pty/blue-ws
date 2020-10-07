@@ -27,6 +27,7 @@
     <xs:element name="ContractorWeekViewTimesheetResponse" type="tns:ContractorWeekViewTimesheetResponse"/>
     <xs:element name="ContractorBillingSummaryResponse" type="tns:ContractorBillingSummaryResponse"/>
     <xs:element name="ActivityAggregate" type="tns:ActivityAggregate"/>
+    <xs:element name="CreateSubscriptionRequest" type="tns:CreateSubscriptionRequest"/>
 
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
@@ -338,4 +339,34 @@
             <xs:element name="totalMinutes" type="xs:int" />
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="CreateSubscriptionRequest">
+        <xs:sequence>
+            <xs:element name="from" type="xs:date"/>
+            <xs:element name="type" type="tns:SubscriptionType"/>
+            <xs:element name="company">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string"/>
+                        <xs:element name="vatNumber" type="xs:string"/>
+                        <xs:element name="companyId" type="xs:string"/>
+                        <xs:element name="registrationToken" type="xs:string"/>
+                        <xs:element name="paymentMethod" type="tns:PaymentMethod"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="SubscriptionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BLUE_APP_LITE_LICENCE_FEE"/>
+            <xs:enumeration value="BLUE_APP_PLUS_LICENCE_FEE"/>
+            <xs:enumeration value="BLUE_APP_PREMIUM_LICENCE_FEE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PaymentMethod">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CREDIT_CARD"/>
+            <xs:enumeration value="EFT"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>
