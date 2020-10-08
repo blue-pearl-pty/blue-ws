@@ -6,7 +6,6 @@
            elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 
     <xs:import namespace="http://www.blueapp.blue/shared/api/v1" schemaLocation="../shared/api.xsd"/>
-
     <xs:element name="TimesheetRequest" type="tns:TimesheetRequest"/>
     <xs:element name="TimesheetResponse" type="tns:TimesheetResponse"/>
     <xs:element name="TimesheetReferenceDataRequest" type="tns:TimesheetReferenceDataRequest"/>
@@ -29,6 +28,8 @@
     <xs:element name="ActivityAggregate" type="tns:ActivityAggregate"/>
     <xs:element name="CreateSubscriptionRequest" type="tns:CreateSubscriptionRequest"/>
     <xs:element name="SubscriptionHistoryResponse" type="tns:SubscriptionHistoryResponse"/>
+    <xs:element name="SubscriptionPaymentRequest" type="tns:SubscriptionPaymentRequest"/>
+    <xs:element name="SubscriptionPaymentResponse" type="tns:SubscriptionPaymentResponse"/>
 
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
@@ -378,4 +379,48 @@
             <xs:element name="nextBillingDate" type="xs:date"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:complexType name="SubscriptionPaymentRequest">
+        <xs:sequence>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="type" type="tns:PaymentMethod"/>
+            <xs:element name="amount" type="xs:string"/>
+            <xs:element name="checkoutId" type="xs:string"/>
+            <xs:element name="transactionId" type="xs:string"/>
+            <xs:element name="registrationToken" type="xs:string"/>
+            <xs:element name="paymentMethod" type="tns:PaymentMethod"/>
+            <xs:element name="company">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string"/>
+                        <xs:element name="vatNumber" type="xs:string"/>
+                        <xs:element name="companyId" type="xs:string"/>
+                        <xs:element name="registrationToken" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="activeSubscription">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="from" type="xs:date"/>
+                        <xs:element name="type" type="tns:SubscriptionType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SubscriptionPaymentResponse">
+        <xs:sequence>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="type" type="tns:PaymentMethod"/>
+            <xs:element name="amount" type="xs:string"/>
+            <xs:element name="channel" type="xs:string"/>
+            <xs:element name="checkoutId" type="xs:string"/>
+            <xs:element name="transactionId" type="xs:string"/>
+            <xs:element name="registrationToken" type="xs:string"/>
+            <xs:element name="paymentMethod" type="tns:PaymentMethod"/>
+        </xs:sequence>
+    </xs:complexType>
+
 </xs:schema>
