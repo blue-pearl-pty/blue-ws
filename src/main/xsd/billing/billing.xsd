@@ -28,6 +28,7 @@
     <xs:element name="ContractorBillingSummaryResponse" type="tns:ContractorBillingSummaryResponse"/>
     <xs:element name="ActivityAggregate" type="tns:ActivityAggregate"/>
     <xs:element name="CreateSubscriptionRequest" type="tns:CreateSubscriptionRequest"/>
+    <xs:element name="SubscriptionHistoryResponse" type="tns:SubscriptionHistoryResponse"/>
 
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
@@ -369,4 +370,12 @@
             <xs:enumeration value="EFT"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="SubscriptionHistoryResponse">
+        <xs:sequence>
+            <xs:element name="to" type="xs:date"/>
+            <xs:element name="from" type="xs:date"/>
+            <xs:element name="type" type="tns:SubscriptionType"/>
+            <xs:element name="nextBillingDate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
