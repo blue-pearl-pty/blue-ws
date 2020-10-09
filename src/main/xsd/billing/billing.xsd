@@ -28,6 +28,7 @@
     <xs:element name="ContractorBillingSummaryResponse" type="tns:ContractorBillingSummaryResponse"/>
     <xs:element name="ActivityAggregate" type="tns:ActivityAggregate"/>
     <xs:element name="CreateSubscriptionRequest" type="tns:CreateSubscriptionRequest"/>
+    <xs:element name="RecurringPaymentResponse" type="tns:RecurringPaymentResponse"/>
 
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
@@ -369,4 +370,31 @@
             <xs:enumeration value="EFT"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="RecurringPaymentResponse">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="paymentType" type="xs:string"/>
+            <xs:element name="amount" type="xs:string"/>
+            <xs:element name="currency" type="xs:string"/>
+            <xs:element name="descriptor" type="xs:string"/>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="code" type="xs:string"/>
+                        <xs:element name="description" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="risk">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="score" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="buildNumber" type="xs:string"/>
+            <xs:element name="timestamp" type="xs:string"/>
+            <xs:element name="ndc" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
