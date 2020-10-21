@@ -352,7 +352,6 @@
                         <xs:element name="name" type="xs:string"/>
                         <xs:element name="vatNumber" type="xs:string"/>
                         <xs:element name="companyId" type="xs:string"/>
-                        <xs:element name="registrationToken" type="xs:string"/>
                         <xs:element name="paymentMethod" type="tns:PaymentMethod"/>
                     </xs:sequence>
                 </xs:complexType>
