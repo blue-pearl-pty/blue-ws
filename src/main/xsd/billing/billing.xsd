@@ -29,6 +29,7 @@
     <xs:element name="ActivityAggregate" type="tns:ActivityAggregate"/>
     <xs:element name="CreateSubscriptionRequest" type="tns:CreateSubscriptionRequest"/>
     <xs:element name="RecurringPaymentResponse" type="tns:RecurringPaymentResponse"/>
+    <xs:element name="CompanyDetailsResponse" type="tns:CompanyDetailsResponse"/>
 
     <xs:complexType name="TimesheetRequest">
         <xs:sequence>
@@ -397,4 +398,17 @@
             <xs:element name="ndc" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:complexType name="CompanyDetailsResponse">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="vat" type="xs:string"/>
+            <xs:element name="paymentMethod" type="xs:string"/>
+            <xs:element name="token" type="xs:string"/>
+            <xs:element name="physicalAddress" type="xs:string"/>
+            <xs:element name="postalAddress" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
 </xs:schema>
