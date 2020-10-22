@@ -20,6 +20,7 @@
                     <xs:documentation>The user's email address.</xs:documentation>
                 </xs:annotation>
             </xs:element>
+            <xs:element name="cellNumber" type="xs:string"/>
             <xs:element name="type" type="tns:UserType"/>
             <xs:element name="status" type="tns:RegistrationStatus"/>
         </xs:sequence>
