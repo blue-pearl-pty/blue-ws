@@ -8,7 +8,7 @@
     <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
         <jaxb:bindings node="xs:complexType[@name='EventLookupRequest']/xs:sequence/xs:element[@name='type']">
             <annox:annotate target="field">
-                <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Event type must not be null."/>
+                <annox:annotate annox:class="jakarta.validation.constraints.NotNull" message="Event type must not be null."/>
             </annox:annotate>
         </jaxb:bindings>
     </jaxb:bindings>
@@ -52,9 +52,9 @@
     <jaxb:bindings schemaLocation="../profile/profile.xsd" node="/xs:schema">
         <jaxb:bindings node="xs:complexType[@name='CreateContractRequest']/xs:sequence/xs:element[@name='initiatedBy']">
             <annox:annotate target="field">
-                <annox:annotate annox:class="javax.validation.constraints.Email" message="Email address must be a valid email."/>
-                <annox:annotate annox:class="javax.validation.constraints.NotEmpty" message="Email address must not be empty."/>
-                <annox:annotate annox:class="javax.validation.constraints.NotNull" message="Email address must not be null."/>
+                <annox:annotate annox:class="jakarta.validation.constraints.Email" message="Email address must be a valid email."/>
+                <annox:annotate annox:class="jakarta.validation.constraints.NotEmpty" message="Email address must not be empty."/>
+                <annox:annotate annox:class="jakarta.validation.constraints.NotNull" message="Email address must not be null."/>
             </annox:annotate>
         </jaxb:bindings>
     </jaxb:bindings>
