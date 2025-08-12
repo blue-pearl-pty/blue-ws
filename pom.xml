@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>za.co.bluepearl</groupId>
     <artifactId>blue-ws</artifactId>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.1.0</version>
 
     <packaging>pom</packaging>
 
@@ -16,7 +17,7 @@
     <properties>
         <api.episode.file>${api.generate.directory}/META-INF/api.episode</api.episode.file>
         <api.generate.directory>${project.build.directory}/generated-sources/xjc/api</api.generate.directory>
-      <java.version>11</java.version>
+        <java.version>11</java.version>
     </properties>
 
     <dependencies>
@@ -144,7 +145,8 @@
                             <bindingIncludes>
                                 <include>registration.xjb</include>
                             </bindingIncludes>
-                            <generateDirectory>${project.build.directory}/generated-sources/xjc/registration</generateDirectory>
+                            <generateDirectory>
+                                ${project.build.directory}/generated-sources/xjc/registration</generateDirectory>
                             <generatePackage>za.co.bluepearl.registration.dto</generatePackage>
                         </configuration>
                     </execution>
@@ -168,7 +170,8 @@
                             <bindingIncludes>
                                 <include>profile.xjb</include>
                             </bindingIncludes>
-                            <generateDirectory>${project.build.directory}/generated-sources/xjc/profile</generateDirectory>
+                            <generateDirectory>
+                                ${project.build.directory}/generated-sources/xjc/profile</generateDirectory>
                             <generatePackage>za.co.bluepearl.profile.dto</generatePackage>
                         </configuration>
                     </execution>
@@ -192,7 +195,8 @@
                             <bindingIncludes>
                                 <include>billing.xjb</include>
                             </bindingIncludes>
-                            <generateDirectory>${project.build.directory}/generated-sources/xjc/billing</generateDirectory>
+                            <generateDirectory>
+                                ${project.build.directory}/generated-sources/xjc/billing</generateDirectory>
                             <generatePackage>za.co.bluepearl.billing.dto</generatePackage>
                         </configuration>
                     </execution>
@@ -264,7 +268,8 @@
                         </goals>
                         <configuration>
                             <executable>javac</executable>
-                            <commandlineArgs>-cp "${project.build.directory}/dependency/*" @target/xjc-sources.txt</commandlineArgs>
+                            <commandlineArgs>-cp "${project.build.directory}/dependency/*"
+                                @target/xjc-sources.txt</commandlineArgs>
                         </configuration>
                     </execution>
                 </executions>
