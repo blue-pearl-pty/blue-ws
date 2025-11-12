@@ -187,7 +187,8 @@
                             <xjbSources>
                                 <xjbSource>src/main/xsd/binding/registration.xjb</xjbSource>
                             </xjbSources>
-                            <outputDirectory>${project.build.directory}/generated-sources/xjc/registration</outputDirectory>
+                            <outputDirectory>
+                                ${project.build.directory}/generated-sources/xjc/registration</outputDirectory>
                             <packageName>za.co.bluepearl.registration.dto</packageName>
                             <arguments>
                                 <argument>-Xannotate</argument>
@@ -206,7 +207,8 @@
                             <xjbSources>
                                 <xjbSource>src/main/xsd/binding/profile.xjb</xjbSource>
                             </xjbSources>
-                            <outputDirectory>${project.build.directory}/generated-sources/xjc/profile</outputDirectory>
+                            <outputDirectory>
+                                ${project.build.directory}/generated-sources/xjc/profile</outputDirectory>
                             <packageName>za.co.bluepearl.profile.dto</packageName>
                             <arguments>
                                 <argument>-Xannotate</argument>
@@ -227,7 +229,8 @@
                             <xjbSources>
                                 <xjbSource>src/main/xsd/binding/billing.xjb</xjbSource>
                             </xjbSources>
-                            <outputDirectory>${project.build.directory}/generated-sources/xjc/billing</outputDirectory>
+                            <outputDirectory>
+                                ${project.build.directory}/generated-sources/xjc/billing</outputDirectory>
                             <packageName>za.co.bluepearl.billing.dto</packageName>
                             <arguments>
                                 <argument>-Xannotate</argument>
